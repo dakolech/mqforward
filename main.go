@@ -38,7 +38,7 @@ func runForward(c *cli.Context) {
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "mqforward"
+	app.Name = "mqforward2"
 	app.Usage = usage
 
 	app.Commands = []cli.Command{
