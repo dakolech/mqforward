@@ -158,7 +158,7 @@ func (ifc *InfluxDBClient) Msg2Series(msgs []Message) influxdb.BatchPoints {
 	// Create a new point batch
 	bp, err := influxdb.NewBatchPoints(influxdb.BatchPointsConfig{
 		Database:  ifc.Config.Db,
-		Precision: "s",
+		Precision: "ns",
 	})
 
 	if err != nil {
