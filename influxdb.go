@@ -153,8 +153,6 @@ func (ifc *InfluxDBClient) Start() error {
 }
 
 func (ifc *InfluxDBClient) Msg2Series(msgs []Message) influxdb.BatchPoints {
-	now := time.Now()
-
 	// Create a new point batch
 	bp, err := influxdb.NewBatchPoints(influxdb.BatchPointsConfig{
 		Database:  ifc.Config.Db,
@@ -181,7 +179,7 @@ func (ifc *InfluxDBClient) Msg2Series(msgs []Message) influxdb.BatchPoints {
 		tags := map[string]string{
 			"topic": msg.Topic,
 		}
-		pt, err := influxdb.NewPoint(name, tags, j, now);
+		pt, err := influxdb.NewPoint(name, tags, j);
 		if err != nil {
 			log.Warn(err)
 			continue
